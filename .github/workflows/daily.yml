@@ -3,8 +3,8 @@ name: Daily YouTube Shorts Report
 on:
   schedule:
     - cron: '0 3 * * *'  # 3 AM UTC daily
-  workflow_dispatch:  # Allow manual trigger
-
+  workflow_dispatch:  # Allow manual triggerenv:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 
 jobs:
@@ -12,8 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
