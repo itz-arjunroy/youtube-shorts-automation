@@ -47,12 +47,7 @@ async function run() {
     logger.info('Main', `${uniqueVideos.length} unique videos remaining after deduplication.`);
     
     if (uniqueVideos.length === 0) {
-      logger.info('Main', 'No new viral videos found today. Sending heartbeat email.');
-      const stats = { totalFound, totalFiltered: 0, duplicatesRemoved: 0 };
-      const textReport = "No new viral YouTube Shorts met the criteria today (50k+ views, 80%+ likes). The system is running correctly.";
-      const htmlReport = "<h3>No Viral Videos Found</h3><p>No new YouTube Shorts met the viral criteria today in the specified niche. The system reached out to YouTube successfully and is functioning as expected.</p>";
-      const subject = `Daily YouTube Shorts Report [SYSTEM CHECK] - ${new Date().toISOString().split('T')[0]}`;
-      await email.sendEmailReport(textReport, htmlReport, subject);
+      logger.info('Main', 'No new viral videos found today.');
     } else {
       // 5. Save to database
       for (const video of uniqueVideos) {
