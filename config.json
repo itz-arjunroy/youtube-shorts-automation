@@ -1,0 +1,16 @@
+{
+  "filtering": {
+    "minViewCount": 50000,
+    "minLikeRatio": 0.8
+  },
+  "email": {
+    "smtp": {
+      "host": "smtp.hostinger.com",
+      "port": 465,
+      "secure": true
+    }
+  },
+  "database": {
+    "historyDays": 7
+  }
+}
