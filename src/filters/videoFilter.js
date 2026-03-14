@@ -1,4 +1,4 @@
-function filterVideos(videos, minViews = 50000, minLikeRatio = 0.8) {
+function filterVideos(videos, minViews = 20000, minLikeRatio = 0.8) {
   return videos.filter(video => {
     const likeRatio = video.viewCount > 0 ? video.likeCount / video.viewCount : 0;
     
