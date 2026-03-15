@@ -4,5 +4,9 @@ module.exports = [
   'kindness shorts',
   'real life hero',
   'emotional story',
-  'motivation shorts'
+  'motivation shorts',
+  'acts of kindness',
+  'inspiring people',
+  'heartwarming moments',
+  'humanity restored clips'
 ];

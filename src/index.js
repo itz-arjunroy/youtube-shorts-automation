@@ -14,7 +14,7 @@ async function run() {
   try {
     await database.initDb();
     
-    const publishedAfter = dateUtils.getLast24HoursISO();
+    const publishedAfter = dateUtils.getLast48HoursISO();
     let allVideoIds = [];
     
     // 1. Search for videos by keyword
@@ -47,7 +47,20 @@ async function run() {
     logger.info('Main', `${uniqueVideos.length} unique videos remaining after deduplication.`);
     
     if (uniqueVideos.length === 0) {
-      logger.info('Main', 'No new viral videos found today.');
+      logger.info('Main', 'No new viral videos found today. Sending status email.');
+      const stats = { totalFound, totalFiltered: 0, duplicatesRemoved: 0 };
+      const textReport = `The YouTube Shorts Bot checked for new viral content today.
+- Videos searched: ${totalFound}
+- Result: No new videos met the viral criteria (25k+ views, 80%+ likes) in the last 48 hours.
+The system is working correctly.`;
+      
+      const htmlReport = `<h3>System Status: OK</h3>
+<p>The bot successfully searched ${totalFound} videos today.</p>
+<p><strong>Result:</strong> No new viral YouTube Shorts met your criteria (25k+ views, 80%+ likes) in the last 48 hours.</p>
+<p>The system is connected and functioning correctly.</p>`;
+
+      const subject = `Daily YouTube Shorts Report [Status: No New Hits] - ${new Date().toISOString().split('T')[0]}`;
+      await email.sendEmailReport(textReport, htmlReport, subject);
     } else {
       // 5. Save to database
       for (const video of uniqueVideos) {

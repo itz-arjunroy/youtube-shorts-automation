@@ -1,6 +1,6 @@
-function getLast24HoursISO() {
+function getLast48HoursISO() {
   const date = new Date();
-  date.setHours(date.getHours() - 24);
+  date.setHours(date.getHours() - 48);
   return date.toISOString();
 }
 
