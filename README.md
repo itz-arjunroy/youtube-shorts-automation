@@ -33,9 +33,9 @@ Automated system to detect and report viral YouTube Shorts in the "Inspiring / H
 4. **GitHub Secrets**:
    If running on GitHub Actions, add these secrets to your repository:
    - `YT_API`
-   - `EMAIL_USER`: Your Gmail (e.g., `makingofviral@gmail.com`)
+   - `EMAIL_USER`: Your sender email (e.g., `sender@gmail.com`)
    - `EMAIL_PASS`: Your App Password
-   - `EMAIL_TO`: Recipient email (e.g., `makingofviral@gmail.com`)
+   - `EMAIL_TO`: Recipient email (e.g., `recipient@gmail.com`)
    - `SMTP_HOST` (Optional, defaults to Gmail)
 
 > [!CAUTION]
