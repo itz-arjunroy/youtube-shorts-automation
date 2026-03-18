@@ -1,7 +1,9 @@
 {
   "filtering": {
-    "minViewCount": 50000,
-    "minLikeRatio": 0.8
+    "minViewCount": 20000,
+    "minLikeRatio": 0.02,
+    "minEngagementRate": 3,
+    "maxAgeHours": 24
   },
   "email": {
     "smtp": {
@@ -11,6 +13,6 @@
     }
   },
   "database": {
-    "historyDays": 7
+    "historyDays": 0
   }
 }
